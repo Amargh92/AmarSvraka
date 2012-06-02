@@ -211,8 +211,96 @@ public abstract class Calculation extends CategoriesUnits implements ActionListe
 				}}
 				 );}
 		   
-		   
+	public void CalculationLength()
 	
+	{
+		calcPanel();
+		//final double result=0;
+		final String amount;
+		amount = JOptionPane.showInputDialog(okvirC, "Input the Amount You wish to Convert");
+		
+
+		 String[] lengthFrom = {"kg","g","mg","tonne","ounces (oz)","stones(st)"};
+		 final JList lengthsFR = new JList(lengthFrom);    
+		 String[] lengthTO = {"kg","g","mg","tonne","ounces (oz)","stones(st)"};
+		 final JList lengthsTO = new JList(lengthFrom); 
+		
+		 lengthsFR.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		 lengthsFR.setFont(new Font("Century Gothic", 1, 19));
+		 lengthsFR.setForeground(Color.white);
+		 lengthsFR.setBackground(Color.blue);
+		 panelC.add(lengthsFR);
+		 lengthsFR.setBounds(70, 70, 100, 100);
+		 
+		 lengthsTO.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		 panelC.add(lengthsTO);
+		 lengthsTO.setFont(new Font("Century Gothic", 1, 19));
+		 lengthsTO.setForeground(Color.white);
+		 lengthsTO.setBackground(Color.blue);
+		 lengthsTO.setBounds(270, 70, 100, 100);
+		 
+		 lengthsFR.addListSelectionListener(new ListSelectionListener()
+		 {
+				public void valueChanged(ListSelectionEvent fr)
+				{
+					lengthsTO.addListSelectionListener(new ListSelectionListener()
+					{
+						 
+							
+						public void valueChanged(ListSelectionEvent to)
+							{													
+							JTextArea resultText = new JTextArea();
+							   resultText.setText("  CONVERTED : ");
+							   resultText.setFont(new Font("Century Gothic", 1, 22));
+							   resultText.setForeground(Color.white);
+							   resultText.setBackground(Color.blue);
+
+							   panelC.add(resultText);
+							   resultText.setBounds(70, 250, 400, 30);
+							   final double fromAmount;
+								fromAmount = Integer.parseInt(amount);
+								double result=0;
+								
+								if (lengthsFR.getSelectedIndex() == 0)
+								{ 
+								
+								if (lengthsTO.getSelectedIndex()== 0)
+								{
+									//kg and kg are chosen, so balance is 1
+									double val = 1;	
+				             	result=fromAmount*val;
+				             	             	
+				             	resultText.setText("  CONVERTED : "+result +" kg");
+							    }
+								if (lengthsTO.getSelectedIndex()== 1)
+									{
+									//kg and g chosen
+									double val = 1000;	
+					             	result=fromAmount*val;
+					             	
+					             	resultText.setText("  CONVERTED : "+result +" g");
+								    }
+					             
+				}
+								if (lengthsTO.getSelectedIndex()== 2)
+								{
+				            	//kg and mg chosen
+				            	 double val = 1000000;
+				             	result=fromAmount*val;
+				             	
+				             	resultText.setText("  CONVERTED : "+result +" mg");
+
+				                	}
+			            	 if (lengthsTO.getSelectedIndex()==3)
+			            	 {
+			            	 //kg and tonne chosen 	 
+			            	 double val=1/1000;
+						     result = fromAmount*val;
+						     resultText.setText("CONVERTED:"+result+"t");
+			            	 }
+			            	 
+							}
+					
 	
 	
 	
@@ -258,10 +346,10 @@ public abstract class Calculation extends CategoriesUnits implements ActionListe
 	 panelC.add(to);
 	 to.setBounds(270, 20, 100, 50);
 	}
-		 
+					}		 
 	
 
-}
+
 	
 		 
 	

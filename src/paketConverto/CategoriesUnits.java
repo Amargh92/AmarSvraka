@@ -40,7 +40,7 @@ public class CategoriesUnits extends StartPage
 	     
 	
 	 okvir2.add(panel1);
-		okvir2.setSize(990,600);
+		okvir2.setSize(900,900);
 		okvir2.setVisible(true);
 		okvir2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		okvir2.setLocation(100, 100);
@@ -55,9 +55,12 @@ public class CategoriesUnits extends StartPage
 	JButton back = new JButton("back");
 	JButton currency = new JButton("currency");
 	JButton length = new JButton("length");
-	JButton weigth = new JButton("weigth");
+	JButton weigth = new JButton("weight");
 	JButton power = new JButton("power");
 	JButton liquid = new JButton("liquid");
+	JButton volume = new JButton("volume");
+	JButton area = new JButton("area");
+	
 	
 	currency.setBounds(130, 50, 200, 50);
 	currency.addActionListener(new CategoryListener());
@@ -92,7 +95,20 @@ public class CategoriesUnits extends StartPage
 	liquid.setFont(new Font("Century Gothic", 1, 16));
 	BCKGRND.add(liquid);
 	
-	back.setBounds(130, 460, 200, 50);
+	volume.setBounds(130,400,200,50);
+	volume.addActionListener(new CategoryListener());
+	volume.setPreferredSize(new Dimension (200,60));
+	volume.setFont(new Font("Century Gothic",1,16));
+	BCKGRND.add(volume);
+	
+	area.setBounds(130,470,200,50);
+	area.addActionListener(new CategoryListener());
+	area.setPreferredSize(new Dimension (200,60));
+	area.setFont(new Font("Century Gothic",1,16));
+	BCKGRND.add(area);
+
+
+	back.setBounds(130, 550, 200, 50);
 	back.addActionListener(new CategoryListener());
 	back.setPreferredSize(new Dimension(200,60));
 	back.setFont(new Font("Century Gothic", 1, 16));
